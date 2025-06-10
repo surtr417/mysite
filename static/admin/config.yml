@@ -1,21 +1,17 @@
-# GitHubリポジトリと連携するための設定
 backend:
-  name: git-gateway # Netlifyの認証機能を利用します
-  branch: main # あなたのリポジトリのメインブランチ名 (masterの場合もあります)
+  name: git-gateway
+  branch: main
 
-# 管理画面でアップロードした画像の保存場所設定
-media_folder: "static/images/uploads" # 画像の保存先フォルダ
-public_folder: "/images/uploads" # 公開される際のパス
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
-# 管理するコンテンツの定義
 collections:
-  # ブログ記事のコレクション
-  - name: "blog" # コレクションの内部名
-    label: "ブログ" # 管理画面に表示される名前
-    folder: "content/blog" # 記事のMarkdownファイルが保存されているフォルダ
-    create: true # 新規作成を許可する
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
-    fields: # 記事の入力項目
+  - name: "blog"
+    label: "ブログ"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
       - { label: "タイトル (Title)", name: "title", widget: "string" }
       - { label: "公開日 (Date)", name: "date", widget: "datetime" }
       - { label: "下書き (Draft)", name: "draft", widget: "boolean", default: true }
