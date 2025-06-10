@@ -1,11 +1,10 @@
 /* --- デザイン案1を、より強力なセレクタで再指定する例 --- */
 
 /* 【選択中のボタン】のスタイル */
-/* セレクタをより具体的にし、!importantで優先度を最大にする */
 section.portfolio-work .portfolio-menu .btn.active {
-  background-color: #E2534B !important; /* テーマのメインカラーのような目立つ色 */
-  color: #ffffff !important;             /* 白色の文字 */
-  border-color: #C1423B !important;     /* 少し濃い色のボーダー */
+  background-color: #45a73d !important;
+  color: #ffffff !important;
+  border-color: #1d4d19 !important;
 }
 
 /* 【選択されていないボタン】のスタイル */
@@ -15,10 +14,12 @@ section.portfolio-work .portfolio-menu .btn:not(.active) {
   border-color: #dee2e6 !important;
 }
 
-/* マウスホバー時のスタイル（任意） */
-section.portfolio-menu .btn:not(.active):hover {
-  background-color: #e2e6ea !important; /* ホバー時に少し色を濃くする */
+/* ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ */
+/* マウスホバー時のスタイル（セレクタを修正） */
+section.portfolio-work .portfolio-menu .btn:not(.active):hover {
+  background-color: #c1e4be !important;
 }
+/* ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ */
 
 /* ポートフォリオアイテムのタイトルのフォントサイズを変更 */
 .portfolio-content .h3 { /* もしくは .portfolio-content h3 としてもOK */
