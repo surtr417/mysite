@@ -1,24 +1,21 @@
+# Netlifyの認証機能と連携するための設定
 backend:
   name: git-gateway
-  branch: main
+  branch: main # GitHubリポジトリのメインブランチ名（mainまたはmasterが一般的）
 
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+# 画像などのメディアファイルを保存する場所
+media_folder: "static/images/uploads" # 画像はここに保存される
+public_folder: "/images/uploads" # 保存された画像がサイトで表示されるきのパス
 
+# 編集するコンテンツ（コレクション）の設定
 collections:
-  - name: "blog"
-    label: "ブログ"
-    folder: "content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "タイトル (Title)", name: "title", widget: "string" }
-      - { label: "公開日 (Date)", name: "date", widget: "datetime" }
-      - { label: "下書き (Draft)", name: "draft", widget: "boolean", default: true }
-      - { label: "背景画像 (Background Image)", name: "bg_image", widget: "image", required: false }
-      - { label: "概要 (Description)", name: "description", widget: "text", required: false }
-      - { label: "著者 (Author)", name: "author", widget: "string", required: false }
-      - { label: "著者画像 (Author Image)", name: "author_image", widget: "image", required: false }
-      - { label: "カテゴリ (Categories)", name: "categories", widget: "list", required: false }
-      - { label: "タグ (Tags)", name: "tags", widget: "list", required: false }
-      - { label: "本文 (Body)", name: "body", widget: "markdown" }
+  - name: "post" # コレクションの名前（管理画面で表示される）
+    label: "投稿" # 管理画面での表示名
+    folder: "content/posts" # 編集対象のファイルが保存されているフォルダ
+    create: true # 新規作成を許可する
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名のルール
+    fields: # 編集する項目
+      - {label: "タイトル", name: "title", widget: "string"}
+      - {label: "公開日", name: "date", widget: "datetime"}
+      - {label: "下書き", name: "draft", widget: "boolean", default: true}
+      - {label: "本文", name: "body", widget: "markdown"}
