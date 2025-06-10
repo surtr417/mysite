@@ -24,8 +24,7 @@ about1:
   button:
     enable: true
     label: "詳しく見る"
-    link: http://localhost:1313/airspace/examplesite/project/#%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E6%95%99%E8%82%B2%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0
-
+    link: 
 about2:
   enable: true
   bg_image: "images/blue.png"
@@ -37,7 +36,7 @@ about2:
   button:
     enable: true
     label: "詳しく見る"
-    link: http://localhost:1313/airspace/examplesite/project/#%E8%84%86%E5%BC%B1%E6%80%A7%E8%A8%BA%E6%96%AD%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9
+    link: project/#脆弱性診断セキュリティチェックアップサービス
 
 about3:
   enable: true
