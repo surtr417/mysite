@@ -24,8 +24,8 @@ about1:
   button:
     enable: true
     label: "詳しく見る"
-    link: 
-about2:
+    link: https://gleeful-caramel-658671.netlify.app/project/#%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E6%95%99%E8%82%B2%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0
+about2
   enable: true
   bg_image: "images/blue.png"
   bg_overlay: true
