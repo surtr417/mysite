@@ -25,7 +25,7 @@ about1:
     enable: true
     label: "詳しく見る"
     link: https://gleeful-caramel-658671.netlify.app/project/#%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E6%95%99%E8%82%B2%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0
-about2
+about2:
   enable: true
   bg_image: "images/blue.png"
   bg_overlay: true
@@ -36,7 +36,7 @@ about2
   button:
     enable: true
     label: "詳しく見る"
-    link: project/#脆弱性診断セキュリティチェックアップサービス
+    link: https://gleeful-caramel-658671.netlify.app/project/#%E8%84%86%E5%BC%B1%E6%80%A7%E8%A8%BA%E6%96%AD%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9
 
 about3:
   enable: true
@@ -50,7 +50,7 @@ about3:
   button:
     enable: true
     label: "詳しく見る"
-    link: http://localhost:1313/airspace/examplesite/project/#ai-dx%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
+    link: https://gleeful-caramel-658671.netlify.app/project/#ai-dx%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
 
 about4:
   enable: true
@@ -63,6 +63,5 @@ about4:
   button:
     enable: true
     label: "詳しく見る"
-    link: http://localhost:1313/airspace/examplesite/project/#omni-oculus-sns%E4%B8%96%E8%AB%96%E6%83%85%E5%A0%B1%E6%93%8D%E4%BD%9C%E5%88%86%E6%9E%90%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0
-
+    link: https://gleeful-caramel-658671.netlify.app/project/#omni-oculus-sns%E4%B8%96%E8%AB%96%E6%83%85%E5%A0%B1%E6%93%8D%E4%BD%9C%E5%88%86%E6%9E%90%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0
 ---
