@@ -1,21 +1,26 @@
-# Netlifyの認証機能と連携するための設定
+# admin/config.yml
+
+# Backend: どこでコンテンツを管理するか
 backend:
-  name: git-gateway
-  branch: main # GitHubリポジトリのメインブランチ名（mainまたはmasterが一般的）
+  name: git-gateway # Netlifyの認証機能(Identity)と連携する方式
+  repo: your-username/your-repository-name # あなたのGitHubユーザー名/リポジトリ名
+  branch: main # コンテンツを管理するブランチ名 (mainまたはmasterが一般的)
 
-# 画像などのメディアファイルを保存する場所
-media_folder: "static/images/uploads" # 画像はここに保存される
-public_folder: "/images/uploads" # 保存された画像がサイトで表示されるきのパス
+# Media: 管理画面からアップロードする画像などの保存場所
+media_folder: "static/images/uploads" # 画像ファイルを保存するパス
+public_folder: "/images/uploads" # サイト上で画像が表示される際のパス
 
-# 編集するコンテンツ（コレクション）の設定
+# Collections: 編集するコンテンツの定義
 collections:
-  - name: "post" # コレクションの名前（管理画面で表示される）
-    label: "投稿" # 管理画面での表示名
-    folder: "content/posts" # 編集対象のファイルが保存されているフォルダ
+  - name: "blog" # 管理画面上でのコレクションの識別名 (半角英数)
+    label: "ブログ記事" # 管理画面上での表示名
+    folder: "content/posts" # 実際のMarkdownファイルが保存されているフォルダ
     create: true # 新規作成を許可する
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名のルール
-    fields: # 編集する項目
-      - {label: "タイトル", name: "title", widget: "string"}
-      - {label: "公開日", name: "date", widget: "datetime"}
-      - {label: "下書き", name: "draft", widget: "boolean", default: true}
-      - {label: "本文", name: "body", widget: "markdown"}
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 新規作成時のファイル名形式
+    fields: # 編集する項目(Hugoのフロントマターに対応)
+      - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "公開日", name: "date", widget: "datetime" }
+      - { label: "下書き", name: "draft", widget: "boolean", default: true }
+      - { label: "カテゴリー", name: "categories", widget: "list", required: false }
+      - { label: "タグ", name: "tags", widget: "list", required: false }
+      - { label: "本文", name: "body", widget: "markdown" }
