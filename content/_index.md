@@ -1,7 +1,7 @@
 ---
 banner:
   enable: true
-  bg_image: /images/uploads/スクリーンショット-2025-06-03-160641.png
+  bg_image: /images/uploads/gemini_generated_image_36wxsa36wxsa36wx.png
   bg_overlay: true
   title: Sola.com Cyber Security Team
   content: ソラコムサイバーセキュリティチーム
