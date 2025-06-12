@@ -1,23 +1,18 @@
-# admin/config.yml
-
-# Backend: どこでコンテンツを管理するか
 backend:
-  name: git-gateway # Netlifyの認証機能(Identity)と連携する方式
-  repo: your-username/your-repository-name # あなたのGitHubユーザー名/リポジトリ名
-  branch: main # コンテンツを管理するブランチ名 (mainまたはmasterが一般的)
+  name: git-gateway
+  repo: your-username/your-repository-name # ご自身のGitHubユーザー名/リポジトリ名に書き換えてください
+  branch: main
 
-# Media: 管理画面からアップロードする画像などの保存場所
-media_folder: "static/images/uploads" # 画像ファイルを保存するパス
-public_folder: "/images/uploads" # サイト上で画像が表示される際のパス
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
-# Collections: 編集するコンテンツの定義
 collections:
-  - name: "blog" # 管理画面上でのコレクションの識別名 (半角英数)
-    label: "ブログ記事" # 管理画面上での表示名
-    folder: "content/posts" # 実際のMarkdownファイルが保存されているフォルダ
-    create: true # 新規作成を許可する
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 新規作成時のファイル名形式
-    fields: # 編集する項目(Hugoのフロントマターに対応)
+  - name: "blog"
+    label: "ブログ記事"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "公開日", name: "date", widget: "datetime" }
       - { label: "下書き", name: "draft", widget: "boolean", default: true }
