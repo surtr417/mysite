@@ -1,21 +1,92 @@
+# backend: あなたのサイトのリポジトリ情報を設定します
 backend:
-  name: git-gateway
-  repo: surtr417/mysite # ご自身のGitHubユーザー名/リポジトリ名に書き換えてください
-  branch: main
+  name: github
+  repo: your-username/your-repository-name # ★★★ あなたのGitHubリポジトリ名に書き換えてください (例: "gleeful-caramel/my-airspace-site")
 
+# media_folder: CMSでアップロードした画像を保存する場所
+# public_folder: サイト上で画像が表示される際のパス
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
+# collections: サイトの各コンテンツセクションの編集設定
 collections:
+  # --- サイト全体の設定 ---
+  # サイト名やSNSリンクなど、サイトの基本情報を編集します
+  - name: "settings"
+    label: "サイト基本設定"
+    files:
+      - name: "config"
+        label: "サイト情報"
+        file: "hugo.toml" # Hugoの設定ファイル
+        editor:
+          preview: false
+        fields:
+          - { label: "サイトタイトル", name: "title", widget: "string" }
+          - { label: "テーマ名", name: "theme", widget: "string" }
+          - name: "params"
+            label: "SNS・連絡先情報"
+            widget: "object"
+            fields:
+              - { label: "電話番号", name: "phone", widget: "string", required: false }
+              - { label: "営業時間", name: "opening_hours", widget: "string", required: false }
+              - { label: "メールアドレス", name: "email", widget: "string", required: false }
+              - name: "social"
+                label: "ソーシャルメディアリンク"
+                widget: "list"
+                fields:
+                  - { label: "アイコン", name: "icon", widget: "string", hint: "例: tf-ion-social-facebook" }
+                  - { label: "リンク先URL", name: "link", widget: "string" }
+
+  # --- ホームページの内容 ---
+  # トップページのバナーや各セクションを編集します
+  - name: "homepage"
+    label: "ホームページ"
+    files:
+      - name: "homepage_content"
+        label: "ホームページ"
+        file: "content/_index.md"
+        fields:
+          - { label: "バナータイトル", name: "title", widget: "string" }
+          - { label: "バナー画像", name: "image", widget: "image" }
+          - { label: "バナーボタンテキスト", name: "button_text", widget: "string" }
+          - { label: "バナーボタンリンク", name: "button_link", widget: "string" }
+          # 他にもホームページにセクションがあれば、ここに追加していきます
+          # 例: - { label: "特集セクション", name: "feature", widget: "object", fields: [...] }
+
+  # --- ブログ記事 ---
+  # 「ブログ」セクションの各記事を管理します
   - name: "blog"
-    label: "ブログ記事"
-    folder: "content/posts"
+    label: "ブログ"
+    folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "公開日", name: "date", widget: "datetime" }
-      - { label: "下書き", name: "draft", widget: "boolean", default: true }
-      - { label: "カテゴリー", name: "categories", widget: "list", required: false }
-      - { label: "タグ", name: "tags", widget: "list", required: false }
+      - { label: "画像", name: "image", widget: "image", required: false }
+      - { label: "著者", name: "author", widget: "string", required: false }
+      - { label: "本文", name: "body", widget: "markdown" }
+
+  # --- ポートフォリオ ---
+  # 「ポートフォリオ」セクションの各実績を管理します
+  - name: "portfolio"
+    label: "ポートフォリオ"
+    folder: "content/portfolio"
+    create: true
+    fields:
+      - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "公開日", name: "date", widget: "datetime" }
+      - { label: "カテゴリー", name: "category", widget: "string" }
+      - { label: "画像", name: "image", widget: "image" }
+      - { label: "本文", name: "body", widget: "markdown" }
+
+  # --- その他の固定ページ ---
+  # 「会社概要」や「お問い合わせ」などの単一ページを管理します
+  - name: "pages"
+    label: "固定ページ"
+    folder: "content"
+    filter: {field: "layout", value: "page"} # layout: page のみ表示
+    create: true
+    fields:
+      - { label: "タイトル", name: "title", widget: "string" }
       - { label: "本文", name: "body", widget: "markdown" }
