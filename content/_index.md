@@ -1,6 +1,6 @@
 ---
 banner:
-  enable: true
+  enable: false
   bg_image: /images/uploads/gemini_generated_image_36wxsa36wxsa36wx.png
   bg_overlay: true
   title: Sola.com Cyber Security Team
