@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: your-username/your-repository-name # ご自身のGitHubユーザー名/リポジトリ名に書き換えてください
+  repo: surtr417/mysite # ご自身のGitHubユーザー名/リポジトリ名に書き換えてください
   branch: main
 
 media_folder: "static/images/uploads"
