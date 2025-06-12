@@ -1,7 +1,7 @@
 # backend: あなたのサイトのリポジトリ情報を設定します
 backend:
   name: github
-  repo: your-username/your-repository-name # ★★★ あなたのGitHubリポジトリ名に書き換えてください (例: "gleeful-caramel/my-airspace-site")
+  repo: surtr417/mysite # ★★★ あなたのGitHubリポジトリ名に書き換えてください (例: "gleeful-caramel/my-airspace-site")
 
 # media_folder: CMSでアップロードした画像を保存する場所
 # public_folder: サイト上で画像が表示される際のパス
