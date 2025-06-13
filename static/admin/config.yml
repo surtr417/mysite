@@ -138,8 +138,7 @@ collections:
     folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    # ▼▼▼ index.md も除外対象に追加します ▼▼▼
-    exclude: ["_index.md", "index.md"]
+    filter: {field: "author", operator: "exists", value: true}
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
