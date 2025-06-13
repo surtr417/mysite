@@ -45,7 +45,7 @@ section.portfolio-work .portfolio-menu .btn:not(.active):hover {
 /*
 =================================================================
 ポートフォリオ インタラクション設定
-(ホバー前：タイトルのみ / ホバー後：説明文表示)
+(ちらつき防止対策 最終版)
 =================================================================
 */
 
@@ -60,12 +60,27 @@ section.portfolio-work .portfolio-menu .btn:not(.active):hover {
 }
 
 
-/* --- (2) ホバー領域の背景色 --- */
+/* --- (2) ホバー領域の設定（ちらつき対策）--- */
 .portfolio-hover {
-  /* 背景を設定して、下の要素が透けないようにします */
-  /* 色や透明度はテーマのデザインに合わせて調整してください */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  /* ▼▼▼【重要】ちらつき対策 ▼▼▼ */
+  height: auto;           /* 高さをコンテンツ量に自動で合わせる */
+  min-height: 100%;       /* 最低でも親要素いっぱいの高さを確保する */
+  
+  /* 背景色の設定 */
   background-color: rgba(255, 255, 255, 0.98);
   transition: background-color 0.3s ease;
+  
+  /* 中のコンテンツを垂直方向に中央揃えにする設定（推奨） */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em; /* 内側に余白を持たせる */
 }
 
 
@@ -73,37 +88,35 @@ section.portfolio-work .portfolio-menu .btn:not(.active):hover {
 .portfolio-content h3 {
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /* タイトルの下の余白を少し確保しておくと、説明文表示時に自然です */
-  margin-bottom: 0.5em; 
+  margin-bottom: 0.5em;
 }
 
 
 /* --- (4) 説明文の表示設定 --- */
 .portfolio-item-description {
-  /* ▼▼▼ 通常時は完全に非表示にします ▼▼▼ */
+  /* 通常時は非表示 */
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   
-  /* --- アニメーションの設定 --- */
-  /* 高さ(max-height)と透明度(opacity)の変化を滑らかにします */
+  /* アニメーションの設定 */
   transition: max-height 0.45s ease-in-out, opacity 0.5s ease-in-out;
 
-  /* --- 横方向のはみ出し対策 --- */
+  /* 横方向のはみ出し対策 */
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 
-/* --- (5) マウスホバー時に説明文を表示する --- */
+/* --- (5) マウスホバー時に説明文を表示 --- */
 .portfolio-item:hover .portfolio-item-description {
-  /* ▼▼▼ 表示状態に戻します ▼▼▼ */
+  /* 表示状態に戻す */
   max-height: 25em; /* 全文が収まるのに十分な高さ */
   opacity: 1;
 }
 
 
-/* --- (6) 説明文中のリンクのはみ出し防止 --- */
+/* --- (6) リンクのはみ出し防止 --- */
 .portfolio-item-description a {
   word-break: break-all;
 }
