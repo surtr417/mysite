@@ -122,7 +122,7 @@ collections:
     folder: "content/project" # Markdownファイルを保存するフォルダ
     create: true # 管理画面から新規作成を許可する
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
-    exclude: "_index.md"
+    exclude: "content/project_index.md"
     fields: # 各記事で編集する項目 (テンプレートファイルで使われているもの)
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
@@ -137,7 +137,7 @@ collections:
     folder: "content/blog" # ★実際のMarkdownファイルの保存場所に合わせて変更してください
     create: true # 管理画面から新規作成を許可する
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
-    exclude: "_index.md"
+    exclude: "content/blog/_index.md"
     fields: # 各記事で編集する項目 (mdファイルのフロントマターに対応)
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
