@@ -47,7 +47,7 @@
 
             {{/* --- [ここを修正] --- */}}
             {{/* クラス名を "service-item" から "portfolio-item" に戻します */}}
-            <div class="col-md-12 portfolio-item shuffle-item" data-groups="{{ $groupData }}">
+            <div class="col-md-6 portfolio-item shuffle-item" data-groups="{{ $groupData }}">
               {{ if isset .Params "image" -}}
               <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}">
               {{- end }}
