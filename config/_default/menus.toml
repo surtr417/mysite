@@ -22,11 +22,6 @@ url = "blog/"
 weight = 4
 
 [[main]]
-weight = 5
-name = "More"
-hasChildren = true
-
-[[main]]
 name = "Contact"
 url = "contact/"
 weight = 6
