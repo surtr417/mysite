@@ -129,3 +129,21 @@ collections:
       - {label: "Category", name: "category", widget: "list", hint: "カテゴリは複数追加できます。追加後、Enterキーを押してください。"}
       - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Body", name: "body", widget: "markdown", hint: "プロジェクトの詳細な内容を記述します。"}
+
+  # Blogページのコレクション
+  - name: "blog" # コレクションの識別子 (半角英数)
+    label: "Blog" # Decap CMSの管理画面に表示される名前
+    folder: "content/blog" # ★実際のMarkdownファイルの保存場所に合わせて変更してください
+    create: true # 管理画面から新規作成を許可する
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
+    fields: # 各記事で編集する項目 (mdファイルのフロントマターに対応)
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Background Image", name: "bg_image", widget: "image", required: false}
+      - {label: "Categories", name: "categories", widget: "list"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: true}
+      - {label: "Type", name: "type", widget: "hidden", default: "post"}
+      - {label: "Body", name: "body", widget: "markdown"}
