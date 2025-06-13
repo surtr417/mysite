@@ -116,14 +116,15 @@ collections:
                   - { label: "ボタンの文言", name: "label", widget: "string" }
                   - { label: "リンク先", name: "link", widget: "string" }
 
-  # Projectページのコレクション
-  - name: "project" # コレクションの識別子 (半角英数)
-    label: "Project" # Decap CMSの管理画面に表示される名前
-    exclude: "content/project_index.md"
-    folder: "content/project" # Markdownファイルを保存するフォルダ
-    create: true # 管理画面から新規作成を許可する
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
-    fields: # 各記事で編集する項目 (テンプレートファイルで使われているもの)
+# Projectページのコレクション
+  - name: "project"
+    label: "Project"
+    folder: "content/project"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    # ▼▼▼ index.md も除外対象に追加します ▼▼▼
+    exclude: ["_index.md", "index.md"]
+    fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Image", name: "image", widget: "image"}
@@ -132,13 +133,14 @@ collections:
       - {label: "Body", name: "body", widget: "markdown", hint: "プロジェクトの詳細な内容を記述します。"}
 
   # Blogページのコレクション
-  - name: "blog" # コレクションの識別子 (半角英数)
-    label: "Blog" # Decap CMSの管理画面に表示される名前
-    folder: "content/blog" # ★実際のMarkdownファイルの保存場所に合わせて変更してください
-    exclude: "content/blog/_index.md"
-    create: true # 管理画面から新規作成を許可する
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
-    fields: # 各記事で編集する項目 (mdファイルのフロントマターに対応)
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    # ▼▼▼ index.md も除外対象に追加します ▼▼▼
+    exclude: ["_index.md", "index.md"]
+    fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Author", name: "author", widget: "string"}
