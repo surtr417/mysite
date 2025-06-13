@@ -44,77 +44,84 @@ section.portfolio-work .portfolio-menu .btn:not(.active):hover {
 
 /*
 =================================================================
-ポートフォリオ インタラクション設定
-(ちらつき防止対策 最終版)
+ポートフォリオ インタラクション設定 (最終解決版)
 =================================================================
+このコードは、テーマのCSSに打ち勝つために優先度を強化しています。
 */
 
 /* --- (1) カード全体の準備 --- */
-.portfolio-item {
-  position: relative; /* z-indexを有効にするため */
+section.portfolio-work .portfolio-item {
+  position: relative;
 }
-
-/* ホバー時に最前面に表示 */
-.portfolio-item:hover {
+section.portfolio-work .portfolio-item:hover {
   z-index: 10;
 }
 
 
-/* --- (2) ホバー領域の設定（ちらつき対策）--- */
-.portfolio-hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+/* --- (2) ホバー領域の基本設定 --- */
+/* セレクタを詳細にして、テーマのCSSより優先度を高くします */
+section.portfolio-work .portfolio-item .portfolio-hover {
+  /* --- ちらつき対策の核となる部分 --- */
+  height: auto !important;
+  min-height: 100% !important;
   
-  /* ▼▼▼【重要】ちらつき対策 ▼▼▼ */
-  height: auto;           /* 高さをコンテンツ量に自動で合わせる */
-  min-height: 100%;       /* 最低でも親要素いっぱいの高さを確保する */
+  /* --- テーマのスタイルを上書き・制御 --- */
+  visibility: hidden !important; /* 通常時は非表示 */
+  opacity: 0 !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
   
-  /* 背景色の設定 */
-  background-color: rgba(255, 255, 255, 0.98);
-  transition: background-color 0.3s ease;
-  
-  /* 中のコンテンツを垂直方向に中央揃えにする設定（推奨） */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1em; /* 内側に余白を持たせる */
+  /* --- 配置とアニメーション --- */
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 1em !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease !important;
 }
 
 
-/* --- (3) タイトルの設定 --- */
-.portfolio-content h3 {
+/* --- (3) マウスホバー時の設定 --- */
+/* ホバー時もセレクタを詳細にします */
+section.portfolio-work .portfolio-item:hover .portfolio-hover {
+  visibility: visible !important; /* ★表示状態にする */
+  opacity: 1 !important;
+}
+
+
+/* --- (4) タイトルの設定 --- */
+section.portfolio-work .portfolio-item .portfolio-content h3 {
   word-wrap: break-word;
   overflow-wrap: break-word;
   margin-bottom: 0.5em;
 }
 
 
-/* --- (4) 説明文の表示設定 --- */
-.portfolio-item-description {
-  /* 通常時は非表示 */
+/* --- (5) 説明文の表示設定 --- */
+section.portfolio-work .portfolio-item .portfolio-item-description {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  
-  /* アニメーションの設定 */
   transition: max-height 0.45s ease-in-out, opacity 0.5s ease-in-out;
-
-  /* 横方向のはみ出し対策 */
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 
-/* --- (5) マウスホバー時に説明文を表示 --- */
-.portfolio-item:hover .portfolio-item-description {
-  /* 表示状態に戻す */
-  max-height: 25em; /* 全文が収まるのに十分な高さ */
+/* --- (6) マウスホバー時に説明文を表示 --- */
+section.portfolio-work .portfolio-item:hover .portfolio-item-description {
+  max-height: 25em;
   opacity: 1;
 }
 
+
+/* --- (7) 説明文中のリンクのはみ出し防止 --- */
+section.portfolio-work .portfolio-item .portfolio-item-description a {
+  word-break: break-all;
+}
 
 /* --- (6) リンクのはみ出し防止 --- */
 .portfolio-item-description a {
