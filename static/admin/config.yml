@@ -119,10 +119,10 @@ collections:
   # Projectページのコレクション
   - name: "project" # コレクションの識別子 (半角英数)
     label: "Project" # Decap CMSの管理画面に表示される名前
+    exclude: "content/project_index.md"
     folder: "content/project" # Markdownファイルを保存するフォルダ
     create: true # 管理画面から新規作成を許可する
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
-    exclude: "content/project_index.md"
     fields: # 各記事で編集する項目 (テンプレートファイルで使われているもの)
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
@@ -135,9 +135,9 @@ collections:
   - name: "blog" # コレクションの識別子 (半角英数)
     label: "Blog" # Decap CMSの管理画面に表示される名前
     folder: "content/blog" # ★実際のMarkdownファイルの保存場所に合わせて変更してください
+    exclude: "content/blog/_index.md"
     create: true # 管理画面から新規作成を許可する
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の形式
-    exclude: "content/blog/_index.md"
     fields: # 各記事で編集する項目 (mdファイルのフロントマターに対応)
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
