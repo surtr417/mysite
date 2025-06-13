@@ -138,7 +138,7 @@ collections:
     folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    filter: {field: "author"}
+    filter: {field: "author", value:false}
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
