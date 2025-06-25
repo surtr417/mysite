@@ -138,7 +138,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss", picker_utc: false}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss", picker_utc: false}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Featured Image", name: "image", widget: "image", required: false}
       - {label: "Background Image", name: "bg_image", widget: "image", required: false}
