@@ -131,19 +131,24 @@ collections:
       - {label: "Body", name: "body", widget: "markdown", hint: "プロジェクトの詳細な内容を記述します。"}
 
   # Blogページのコレクション
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss", picker_utc: false}
-      - {label: "Author", name: "author", widget: "string"}
-      - {label: "Featured Image", name: "image", widget: "image", required: false}
-      - {label: "Background Image", name: "bg_image", widget: "image", required: false}
-      - {label: "Categories", name: "categories", widget: "list"}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Draft", name: "draft", widget: "boolean", default: true}
-      - {label: "Type", name: "type", widget: "hidden", default: "post"}
-      - {label: "Body", name: "body", widget: "markdown"}
+  collections:
+  - name: "blog" # コレクションの名前。URLなどで使われることもあります。
+    label: "ブログ記事" # CMS管理画面で表示されるコレクション名
+    folder: "content/blog" # Markdownファイルが保存されるフォルダパス
+    create: true # 新規記事の作成を許可するか (true推奨)
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の命名規則
+    extension: "md" # ファイルの拡張子 (Markdownなのでmd)
+    format: "frontmatter" # フロントマター形式であることを指定 (デフォルトですが明示的に)
+
+    fields: # ここにMarkdownファイルのフロントマター項目を定義します
+      - {label: "タイトル", name: "title", widget: "string"}
+      - {label: "公開日", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss", picker_utc: false} # 秒までと日本タイムゾーン
+      - {label: "著者", name: "author", widget: "string"}
+      - {label: "主要画像", name: "image", widget: "image", required: false} # 必須ではない
+      - {label: "背景画像", name: "bg_image", widget: "image", required: false} # 必須ではない
+      - {label: "カテゴリ", name: "categories", widget: "list", default: [], allow_add: true, required: false} # リスト形式
+      - {label: "タグ", name: "tags", widget: "list", default: [], allow_add: true, required: false} # リスト形式
+      - {label: "概要", name: "description", widget: "string", required: false}
+      - {label: "下書き", name: "draft", widget: "boolean", default: true} # trueで下書き状態に
+      - {label: "タイプ", name: "type", widget: "hidden", default: "post"} # 通常は "post" などで固定。hiddenで管理画面に表示しない。
+      - {label: "本文", name: "body", widget: "markdown"} # 本文はMarkdownウィジェットで編集
