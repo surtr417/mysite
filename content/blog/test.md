@@ -10,6 +10,6 @@ tags:
   - test
 description: test
 draft: false
-type: post
+type: "post"
 ---
 test
