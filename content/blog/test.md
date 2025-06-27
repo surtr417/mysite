@@ -1,6 +1,6 @@
 ---
 title: test
-date: 2025-06-27T10:47:00
+date: 2025-06-27T10:47:00+9:00
 author: test
 image: images/pepe.gif
 bg_image: images/pepe.gif
