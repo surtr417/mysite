@@ -6,8 +6,8 @@ backend:
 
 # media_folder: CMSでアップロードした画像を保存する場所
 # public_folder: サイト上で画像が表示される際のパス
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+media_folder: "static/images"
+public_folder: "images/"
 
 # collections: サイトの各コンテンツセクションの編集設定
 collections:
@@ -135,7 +135,7 @@ collections:
     label: "ブログ記事" # CMS管理画面で表示されるコレクション名
     folder: "content/blog" # Markdownファイルが保存されるフォルダパス
     create: true # 新規記事の作成を許可するか (true推奨)
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名の命名規則
+    slug: "{{slug}}" # ファイル名の命名規則
     extension: "md" # ファイルの拡張子 (Markdownなのでmd)
     format: "frontmatter" # フロントマター形式であることを指定 (デフォルトですが明示的に)
 
