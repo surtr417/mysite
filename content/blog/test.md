@@ -6,7 +6,7 @@ image: images/pepe.gif
 bg_image: images/pepe.gif
 categories:
   - test
-tags:["test"]
+tags: ["test"]
 description: test
 draft: false
 type: "post"
