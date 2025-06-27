@@ -37,7 +37,7 @@ collections:
 
     fields: # ここにMarkdownファイルのフロントマター項目を定義します
       - {label: "タイトル", name: "title", widget: "string"}
-      - {label: "公開日", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss", picker_utc: false} # 秒までと日本タイムゾーン
+      - {label: "公開日", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", picker_utc: false}
       - {label: "著者", name: "author", widget: "string"}
       - {label: "主要画像", name: "image", widget: "image", required: false} # 必須ではない
       - {label: "背景画像", name: "bg_image", widget: "image", required: false} # 必須ではない
