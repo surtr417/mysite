@@ -131,7 +131,6 @@ collections:
       - {label: "Body", name: "body", widget: "markdown", hint: "プロジェクトの詳細な内容を記述します。"}
 
   # Blogページのコレクション
-  collections:
   - name: "blog" # コレクションの名前。URLなどで使われることもあります。
     label: "ブログ記事" # CMS管理画面で表示されるコレクション名
     folder: "content/blog" # Markdownファイルが保存されるフォルダパス
